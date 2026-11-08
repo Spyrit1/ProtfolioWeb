@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Instagram, Mail, Sparkles } from 'lucide-react';
+import { ArrowUp, Instagram, Mail } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
@@ -8,21 +8,32 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-[#1c202a] bg-[#07080a] py-12 text-xs text-[#8a91a3]">
+    <footer className="border-t border-[#d8d4c7] bg-[#dedad0] py-12 text-xs text-neutral-600">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#1c202a]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-neutral-100">
           {/* Brand info */}
           <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded bg-[#141720] border border-[#272d3b] flex items-center justify-center text-[10px] font-mono font-bold text-[#dfbd69]">
-                A
-              </span>
-              <span className="font-bold text-white tracking-tight text-sm">
+            <div className="flex items-center gap-2.5">
+              <img
+                src={PERSONAL_INFO.logo}
+                alt="Better Designs Logo"
+                className="w-7 h-7 rounded-md object-contain bg-white border border-neutral-200 p-0.5 shadow-2xs"
+              />
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+              </div>
+              <span className="font-bold text-neutral-900 tracking-tight text-sm">
                 {PERSONAL_INFO.name}
               </span>
+              <span className="text-xs text-neutral-500 font-normal hidden sm:inline">
+                ({PERSONAL_INFO.brandName})
+              </span>
             </div>
-            <span className="hidden sm:inline text-[#3a4153]">·</span>
-            <span className="text-[#9da3b4]">
+            <span className="hidden sm:inline text-neutral-300">·</span>
+            <span className="text-neutral-600">
               {PERSONAL_INFO.title}
             </span>
           </div>
@@ -33,7 +44,7 @@ export const Footer: React.FC = () => {
               href={PERSONAL_INFO.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#dfbd69] text-[#9da3b4] transition-colors flex items-center gap-1.5"
+              className="hover:text-black text-neutral-600 transition-colors flex items-center gap-1.5"
             >
               <Instagram className="w-3.5 h-3.5" />
               <span>{PERSONAL_INFO.instagramHandle}</span>
@@ -41,7 +52,7 @@ export const Footer: React.FC = () => {
 
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="hover:text-[#dfbd69] text-[#9da3b4] transition-colors flex items-center gap-1.5"
+              className="hover:text-black text-neutral-600 transition-colors flex items-center gap-1.5"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>{PERSONAL_INFO.email}</span>
@@ -50,17 +61,22 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom row */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[#757d90]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-neutral-400">
           <p>© {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#dfbd69]" />
-              Bespoke Web Design & Engineering
+            <span className="flex items-center gap-2 text-neutral-500">
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+              </div>
+              <span>Clean Web Design & Development</span>
             </span>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1 text-[#9da3b4] hover:text-[#dfbd69] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 text-neutral-600 hover:text-black transition-colors cursor-pointer"
               aria-label="Back to top"
             >
               <span>Back to Top</span>

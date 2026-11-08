@@ -1,15 +1,65 @@
 import React from 'react';
-import { Palette, Code2, Smartphone, Globe, Server, Rocket, ArrowUpRight } from 'lucide-react';
+import { Palette, Code2, Smartphone, Globe, Server, Rocket } from 'lucide-react';
 import { motion } from 'motion/react';
 import { SERVICES } from '../data/portfolioData';
 
-const iconMap: Record<string, React.ReactNode> = {
-  'web-design': <Palette className="w-5 h-5 text-[#dfbd69]" />,
-  'web-dev': <Code2 className="w-5 h-5 text-[#dfbd69]" />,
-  'responsive-design': <Smartphone className="w-5 h-5 text-[#dfbd69]" />,
-  'domain-setup': <Globe className="w-5 h-5 text-[#dfbd69]" />,
-  'website-hosting': <Server className="w-5 h-5 text-[#dfbd69]" />,
-  'website-deployment': <Rocket className="w-5 h-5 text-[#dfbd69]" />,
+interface ServiceTheme {
+  icon: React.ReactNode;
+  iconBg: string;
+  dotColor: string;
+  badgeBorder: string;
+  accentText: string;
+}
+
+const serviceThemes: Record<string, ServiceTheme> = {
+  // 01: Blue
+  'web-design': {
+    icon: <Palette className="w-5 h-5 text-blue-600" />,
+    iconBg: 'bg-blue-50 border-blue-200',
+    dotColor: 'bg-blue-600',
+    badgeBorder: 'hover:border-blue-300',
+    accentText: 'text-blue-600',
+  },
+  // 02: Yellow
+  'web-dev': {
+    icon: <Code2 className="w-5 h-5 text-amber-600" />,
+    iconBg: 'bg-amber-50 border-amber-200',
+    dotColor: 'bg-amber-500',
+    badgeBorder: 'hover:border-amber-300',
+    accentText: 'text-amber-600',
+  },
+  // 03: Green
+  'responsive-design': {
+    icon: <Smartphone className="w-5 h-5 text-emerald-600" />,
+    iconBg: 'bg-emerald-50 border-emerald-200',
+    dotColor: 'bg-emerald-500',
+    badgeBorder: 'hover:border-emerald-300',
+    accentText: 'text-emerald-600',
+  },
+  // 04: Blue
+  'domain-setup': {
+    icon: <Globe className="w-5 h-5 text-blue-600" />,
+    iconBg: 'bg-blue-50 border-blue-200',
+    dotColor: 'bg-blue-600',
+    badgeBorder: 'hover:border-blue-300',
+    accentText: 'text-blue-600',
+  },
+  // 05: Green
+  'website-hosting': {
+    icon: <Server className="w-5 h-5 text-emerald-600" />,
+    iconBg: 'bg-emerald-50 border-emerald-200',
+    dotColor: 'bg-emerald-500',
+    badgeBorder: 'hover:border-emerald-300',
+    accentText: 'text-emerald-600',
+  },
+  // 06: Red
+  'website-deployment': {
+    icon: <Rocket className="w-5 h-5 text-rose-600" />,
+    iconBg: 'bg-rose-50 border-rose-200',
+    dotColor: 'bg-rose-500',
+    badgeBorder: 'hover:border-rose-300',
+    accentText: 'text-rose-600',
+  },
 };
 
 interface ServicesProps {
@@ -18,83 +68,95 @@ interface ServicesProps {
 
 export const Services: React.FC<ServicesProps> = ({ onOpenHireModal }) => {
   return (
-    <section id="services" className="py-20 md:py-28 border-b border-[#1c202a] bg-[#08090b]">
+    <section id="services" className="py-20 md:py-28 border-b border-[#d8d4c7] bg-[#e8e5dd] relative">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#9da3b4] font-medium mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#dfbd69]" />
+            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 font-medium mb-3">
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+              </div>
               <span>Services</span>
-              <span aria-hidden="true" className="text-[#3b4252]">·</span>
+              <span aria-hidden="true" className="text-neutral-300">·</span>
               <span>Capabilities</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-950 tracking-tight">
               Everything needed to take your website{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#dfbd69] to-[#c89e4b]">
+              <span className="text-neutral-900 underline decoration-amber-400 underline-offset-4 decoration-2">
                 live to the world.
               </span>
             </h2>
           </div>
-          <p className="text-sm text-[#9da3b4] max-w-md leading-relaxed">
+          <p className="text-sm text-neutral-600 max-w-md leading-relaxed">
             From the initial blank canvas to a globally distributed, high-speed website, I take care of every layer of the stack.
           </p>
         </div>
 
-        {/* 6 Services Grid */}
+        {/* 6 Services Grid with Blue, Yellow, Green, Red Identity */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service, idx) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              className="luxury-card group p-6 rounded-2xl flex flex-col justify-between transition-all duration-300"
-            >
-              <div>
-                {/* Header row with icon and editorial numbering */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#141720] border border-[#272d3b] group-hover:border-[#dfbd69]/40 flex items-center justify-center transition-colors">
-                    {iconMap[service.id]}
+          {SERVICES.map((service, idx) => {
+            const theme = serviceThemes[service.id];
+            return (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.4, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className={`editorial-card group p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 ${theme.badgeBorder}`}
+              >
+                <div>
+                  {/* Header row with icon and editorial numbering */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-all ${theme.iconBg}`}
+                    >
+                      {theme.icon}
+                    </div>
+                    <span className="font-mono text-xs text-neutral-400 font-bold">
+                      {service.number}
+                    </span>
                   </div>
-                  <span className="font-mono text-xs text-[#dfbd69] font-bold">
-                    {service.number}
-                  </span>
+
+                  <h3 className="text-lg font-bold text-neutral-950 mb-2 group-hover:text-black transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
+                    {service.shortDescription}
+                  </p>
                 </div>
 
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#dfbd69] transition-colors">
-                  {service.title}
-                </h3>
+                <div>
+                  <div className="pt-4 border-t border-neutral-100 mb-4">
+                    <ul className="space-y-1.5">
+                      {service.deliverables.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-xs text-neutral-600">
+                          <span className={`w-1.5 h-1.5 rounded-full ${theme.dotColor}`} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <p className="text-xs sm:text-sm text-[#8a91a3] leading-relaxed mb-6">
-                  {service.shortDescription}
-                </p>
-              </div>
-
-              <div>
-                <div className="pt-4 border-t border-[#1e232e] mb-4">
-                  <ul className="space-y-1.5">
-                    {service.deliverables.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-[#9da3b4]">
-                        <span className="w-1 h-1 rounded-full bg-[#dfbd69]" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <button
+                    type="button"
+                    onClick={() => onOpenHireModal(service.title)}
+                    className="w-full text-left text-xs font-semibold text-neutral-700 hover:text-black flex items-center justify-between pt-2 group/btn cursor-pointer transition-colors"
+                  >
+                    <span>Inquire about {service.title}</span>
+                    <span className="group-hover/btn:translate-x-1 transition-transform text-neutral-900">
+                      &rarr;
+                    </span>
+                  </button>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={() => onOpenHireModal(service.title)}
-                  className="w-full text-left text-xs font-semibold text-[#8a91a3] hover:text-[#dfbd69] flex items-center justify-between pt-2 group/btn cursor-pointer transition-colors"
-                >
-                  <span>Inquire about {service.title}</span>
-                  <span className="group-hover/btn:translate-x-1 transition-transform text-[#dfbd69]">&rarr;</span>
-                </button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -3,16 +3,18 @@ import { Project, ServiceItem, WhyReason } from '../types';
 export const PERSONAL_INFO = {
   name: 'Aditya',
   title: 'Website Designer & Developer',
+  brandName: 'Better Designs',
+  logo: '/assets/aistudio/836547535_18124075228861145_1498941887262841621_n_53d0893c.jpg',
   email: 'iamspyrit@gmail.com',
   instagramHandle: '@betterdesings_',
   instagramUrl: 'https://www.instagram.com/betterdesings_/',
   heroHeadline: 'I design, build and launch websites that make businesses look professional online.',
   heroSubheadline:
-    'From initial design concepts to development, domain configuration, high-speed hosting, and final deployment — I take care of everything so you can focus on growing your business.',
+    'I design and build modern, high-quality websites that make brands look professional and stand out online. From the first concept to development, hosting, and launch — I handle everything to turn your vision into a polished digital experience.',
   heroQuote: 'Your idea. My design. A website built to make an impact.',
   portfolioQuote: 'Good design gets attention. A great website turns that attention into action.',
   aboutBio:
-    "I'm Aditya, a website designer and developer focused on creating clean, modern and responsive websites. I handle the complete process — from designing and coding to hosting and making your website live.",
+    'I design and build modern, high-quality websites that make brands look professional and stand out online. From the first concept to development, hosting, and launch — I handle everything to turn your vision into a polished digital experience.',
   aboutExtended:
     'Whether you are an ambitious business, independent creator, or growing brand, I craft websites that convey credibility, convert visitors, and reflect your unique identity. Every line of code and every pixel is crafted with care, speed, and precision.',
 };
@@ -77,7 +79,7 @@ export const PROJECTS: Project[] = [
     url: 'https://spyrit-india.vercel.app/',
     description:
       'A premium watch website designed with a clean and elegant visual style, focused on presenting luxury watches in an affordable and attractive way.',
-    image: '/src/assets/images/project_spyrit_india_1793958585843.jpg',
+    image: '/assets/images/project_spyrit_india_1793958585843.jpg',
     highlights: [
       'Minimalist luxury aesthetic with curated typography',
       'High-impact hero imagery showcasing craftsmanship',
@@ -94,7 +96,7 @@ export const PROJECTS: Project[] = [
     url: 'https://irongymweb.vercel.app/',
     description:
       'A modern gym website designed to present the gym, its services, facilities and overall brand in a strong and professional way.',
-    image: '/src/assets/images/project_iron_gym_1793958586417.jpg',
+    image: '/assets/images/project_iron_gym_1793958586417.jpg',
     highlights: [
       'Bold, athletic visual identity with dark contrast styling',
       'Interactive class schedules and training discipline sections',
@@ -102,6 +104,23 @@ export const PROJECTS: Project[] = [
       'Mobile-first responsive design for members on the go',
     ],
     servicesDelivered: ['Brand Styling', 'Web Development', 'Class Schedule Engine', 'Live Deployment'],
+  },
+  {
+    id: 'horizon',
+    title: 'Horizon',
+    tagline: 'Luxury Real Estate & Property Showcase',
+    category: 'Real Estate / Property Firm',
+    url: 'https://horizon.adixweb.site/',
+    description:
+      'A modern real estate website designed to showcase luxury residential properties, architectural developments, prime listings, and client inquiries with a clean, trustworthy, and elegant aesthetic.',
+    image: '/assets/images/project_horizon_realestate_1794122030328.jpg',
+    highlights: [
+      'Clean property showcase architecture with high-resolution visual tours',
+      'Intuitive property filter controls for locations, bed/bath specs, and pricing',
+      'Fast lead generation inquiry system connecting buyers directly with agents',
+      'Custom domain configuration and cloud edge hosting on horizon.adixweb.site',
+    ],
+    servicesDelivered: ['UI/UX Design', 'Full-Stack Development', 'Domain & Hosting Setup', 'Live Production Launch'],
   },
 ];
 

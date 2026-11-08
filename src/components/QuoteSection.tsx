@@ -4,39 +4,36 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const QuoteSection: React.FC = () => {
   return (
-    <section className="py-20 md:py-24 border-b border-[#1c202a] bg-[#07080a] relative overflow-hidden">
-      {/* Subtle ambient gold radial center */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] pointer-events-none opacity-25 blur-[90px]"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(212, 175, 55, 0.2), transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
-
+    <section className="py-20 md:py-24 border-b border-[#d8d4c7] bg-[#dedad0]/40 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="inline-block mb-4">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-[#dfbd69] bg-[#dfbd69]/10 px-3 py-1 rounded-full border border-[#dfbd69]/20">
-              Core Design Principle
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-neutral-700 bg-neutral-100 px-3.5 py-1 rounded-full border border-neutral-200 font-medium">
+              <span className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+              </span>
+              <span>Core Design Principle</span>
             </span>
           </div>
 
-          <blockquote className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-snug sm:leading-tight mb-6 text-balance">
+          <blockquote className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-neutral-950 leading-snug sm:leading-tight mb-6 text-balance">
             &ldquo;{PERSONAL_INFO.portfolioQuote}&rdquo;
           </blockquote>
 
-          <div className="flex items-center justify-center gap-3 text-xs text-[#7e8597]">
-            <div className="w-8 h-[1px] bg-[#272d3b]" />
-            <span className="text-[#c7ccd9] font-semibold">{PERSONAL_INFO.name}</span>
+          <div className="flex items-center justify-center gap-3 text-xs text-neutral-500">
+            <div className="w-8 h-[1px] bg-neutral-200" />
+            <span className="text-neutral-900 font-semibold">{PERSONAL_INFO.name}</span>
             <span>·</span>
             <span>{PERSONAL_INFO.title}</span>
-            <div className="w-8 h-[1px] bg-[#272d3b]" />
+            <div className="w-8 h-[1px] bg-neutral-200" />
           </div>
         </motion.div>
       </div>

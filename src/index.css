@@ -5,29 +5,26 @@
     --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
 
-    /* Theme Tokens */
-    --color-bg-base: #08090b;
-    --color-bg-surface: #101216;
-    --color-bg-elevated: #161920;
-    --color-border: #222631;
-    --color-border-hover: #333a4a;
-    --color-accent: #d4af37;
-    --color-accent-hover: #e2c058;
-    --color-accent-subtle: rgba(212, 175, 55, 0.1);
-    --color-text-primary: #f5f6f8;
-    --color-text-secondary: #9da3b4;
-    --color-text-muted: #656c7d;
+    /* Timeless Monochrome & Neutral Tokens on Warm Linen Canvas #e8e5dd */
+    --color-bg-base: #e8e5dd;
+    --color-bg-surface: #f2efe8;
+    --color-bg-elevated: #ffffff;
+    --color-border: #d8d4c7;
+    --color-border-hover: #c4bfb0;
+    --color-text-primary: #09090b;
+    --color-text-secondary: #4a4944;
+    --color-text-muted: #6b6961;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-bg-base);
-    color: var(--color-text-primary);
+    background-color: #e8e5dd;
+    color: #09090b;
     overflow-x: hidden;
   }
 
@@ -37,42 +34,36 @@
   }
 }
 
-/* Custom Gold Tint Selection */
+/* Custom Minimalist Selection */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.25);
+  background-color: #09090b;
   color: #ffffff;
 }
 
-/* Subtle luxury scrollbar */
+/* Subtle clean scrollbar matching warm linen #e8e5dd */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090b;
+  background: #e8e5dd;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f232c;
+  background: #c8c4b6;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2e3442;
+  background: #a9a494;
 }
 
-/* Glass & Card Micro Effects */
-.luxury-card {
-  background: linear-gradient(180deg, rgba(20, 23, 30, 0.75) 0%, rgba(13, 15, 19, 0.85) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
+/* Minimal Editorial Card */
+.editorial-card {
+  background: #ffffff;
+  border: 1px solid #d8d4c7;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.luxury-card:hover {
-  border-color: rgba(212, 175, 55, 0.28);
-  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(212, 175, 55, 0.08);
-}
-
-.gold-badge {
-  background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  color: #dfbd69;
+.editorial-card:hover {
+  border-color: #9c9789;
+  box-shadow: 0 8px 24px -4px rgba(45, 42, 38, 0.08);
 }
